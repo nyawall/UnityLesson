@@ -8,6 +8,7 @@ public class TileBonusNormalDice : Tile
     public override void OnHere()
     {
         base.OnHere();
+        // todo -> change player's direction
     }
 }
 
