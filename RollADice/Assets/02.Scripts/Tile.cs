@@ -9,7 +9,7 @@ public class Tile : MonoBehaviour, IComparable<Tile>
 
     public int CompareTo(Tile other)
     {
-        int result = 0;
+        //int result = 0;
         if (this.Id < other.Id)
             return -1;
         else if (this.Id < other.Id)

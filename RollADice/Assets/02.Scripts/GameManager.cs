@@ -94,35 +94,40 @@ public class GameManager : MonoBehaviour
     #endregion
 
     [SerializeField] private List<Tile> _tiles;
-    private List<TileStar> _tileStars;
+    private List<TileStar> _tileStars = new List<TileStar>();
     private int _tilesCount;
     private int _current;
+    private bool _isPlayerMoving = false;
     
 
     public void RollANormalDice()
     {
-        if (_normalDiceNum > 0)
+        if (NormalDiceNum > 0 && _isPlayerMoving == false)
         {
-            _normalDiceNum--;
+            _isPlayerMoving = true;
+            NormalDiceNum--;
             int diceValue =  Random.Range(1, 7);
-            MovePlayar(diceValue);
+            // dice animation 이 끝날때까지 기다림 
+            DiceAnimationUI.Instance.PlayDiceAnimation(diceValue);
+            
         }
     }
     
     
     public void RollAGoldenDice(int diceValue)
     {
-        if (_goldenDiceNum > 0)
+        if (GoldenDiceNum > 0 && _isPlayerMoving == false)
         {
-            _goldenDiceNum--;
-            MovePlayar(diceValue);
+            _isPlayerMoving = true;
+            GoldenDiceNum--;
+            DiceAnimationUI.Instance.PlayDiceAnimation(diceValue);
 
         }
     }
 
 
 
-    public void MovePlayar(int diceValue)
+    public void MovePlayer(int diceValue)
     {
         if (_direction == Constants.DIRECTION_POSITIVE)
         {
@@ -182,7 +187,14 @@ public class GameManager : MonoBehaviour
 
 
         _tilesCount = _tiles.Count;
-        _current = 0;
+        _current = -1;
+        Direction = Constants.DIRECTION_POSITIVE;
     }
+    private void Start()
+    {
+        DiceAnimationUI.Instance.OnAnimationFinished += MovePlayer;
 
+        DiceAnimationUI.Instance.OnAnimationFinished += (diceValue) => _isPlayerMoving = false;
+
+    }
 }
