@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MV
+    uniqueID: 1460616843
+    locked: 0
+  - name: BG
+    uniqueID: 238083027
+    locked: 0
+  - name: NoteHitter
+    uniqueID: 4141107665
+    locked: 0
