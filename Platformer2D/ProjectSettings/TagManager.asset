@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - GroundIgnored
+  - Player
+  - PlayerCollision
+  - PlayerProjectile
+  - 
+  - 
+  - Enemy
+  - EnemyCollision
+  - EnemyProjectile
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Ladder
+  - 
+  - 
+  - 3D
+  - Portal
+  - MapBound
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 3945061593
+    locked: 0
+  - name: Ground
+    uniqueID: 3920911301
+    locked: 0
+  - name: Environment
+    uniqueID: 4227634441
+    locked: 0
+  - name: Player
+    uniqueID: 3618413873
+    locked: 0
+  - name: Enemy
+    uniqueID: 2577464279
+    locked: 0
+  - name: Obstacle
+    uniqueID: 3204357587
+    locked: 0

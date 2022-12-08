@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     private void Awake()
     {
-        if (Instance == null)
-            Destroy(Instance);
-        Instance = this;
+        if (Instance != null)
+            Destroy(gameObject);
 
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
     public enum States
@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
         DisplayScore,
         WaitForUser
     }
-
     public States Current;
+
     public void MoveNext() => Current++;
     public void OnPlayButtonClick()
     {
@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
         else
             Debug.LogWarning("[GameManager] : 곡을 먼저 선택하세요 !");
     }
+
+
     private void Update()
     {
         switch (Current)
@@ -54,13 +56,13 @@ public class GameManager : MonoBehaviour
                 break;
             case States.StartGame:
                 {
-                    SceneManager.LoadScene("PLAY");
+                    SceneManager.LoadScene("Play");
                     MoveNext();
                 }
                 break;
             case States.WaitForGameFinished:
                 {
-
+                    //
                 }
                 break;
             case States.DisplayScore:
